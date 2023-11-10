@@ -9,8 +9,11 @@ const Hero = () => {
           <h1 className='hero-content-information-title'>Little Lemon</h1>
           <h2 className='hero-content-information-subtitle'>Chicago</h2>
           <p className='hero-content-information-description'>
-            We are a family owned Mediterranean restaurant, focused on
-            traditional recipes served with a modern twist.
+            Little Lemon is a family-owned Mediterranean restaurant that
+            artfully combines timeless flavors with a modern twist. Passionate
+            about preserving heritage, we infuse traditional recipes with
+            contemporary flair, delivering heartwarming dishes that celebrate
+            the essence of the Mediterranean.
           </p>
           <Button
             buttonType='primary'

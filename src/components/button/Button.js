@@ -1,11 +1,15 @@
 import './Button.css';
 
-const Button = ({ buttonType, path, innerText }) => {
+const Button = ({ buttonType, path, innerText, fillParent }) => {
   return (
-    <a href={path}>
+    <a className={fillParent && 'fill-parent'} href={path}>
       <button
         className={
-          buttonType ? 'button button-' + buttonType : 'button button-light'
+          (buttonType
+            ? `button button-${buttonType}`
+            : 'button button-light ') +
+          ' ' +
+          (fillParent && 'fill-parent')
         }
       >
         {innerText}

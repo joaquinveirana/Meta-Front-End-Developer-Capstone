@@ -20,13 +20,61 @@
 
 .dishcard {
   border-radius: 16px;
-
-  -webkit-box-shadow: 8px 8px 15px -14px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 8px 8px 15px -14px rgba(66, 68, 90, 1);
-  box-shadow: 8px 8px 15px -14px rgba(66, 68, 90, 1);
+  -webkit-box-shadow: 5px 8px 18px 0px rgba(133, 134, 140, 1);
+  -moz-box-shadow: 5px 8px 18px 0px rgba(133, 134, 140, 1);
+  box-shadow: 5px 8px 18px 0px rgba(133, 134, 140, 1);
 }
+
 .dishcard-image {
-  aspect-ratio: 16/10;
   border-radius: 16px 16px 0 0;
+  height: 25%;
   width: 100%;
+}
+
+.dishcard-content {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  padding: 15px;
+}
+
+.dishcard-content-title {
+  margin: 0;
+  color: var(--very-dark-gray);
+}
+
+.dishcard-content-description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 180px;
+}
+
+.dishcard-content-price-number {
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--dark-gray);
+}
+
+.dishcard-content-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.dishcard-content-price-rating {
+  display: flex;
+}
+
+.dishcard-content-buttons {
+  align-items: center;
+  align-self: flex-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  row-gap: 10px;
+  width: 100%;
+}
+
+.dishcard-content-rating-count {
+  margin-top: 5px;
+  font-size: 12px;
 }

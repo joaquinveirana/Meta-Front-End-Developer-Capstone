@@ -9,9 +9,12 @@
   font-weight: 600;
   padding: 15px 20px;
   max-height: 80px;
-  max-width: 200px;
   text-decoration: none;
   transition: all 200ms ease;
+}
+
+.fill-parent {
+  width: 100%;
 }
 
 .button-primary {

@@ -15,6 +15,8 @@ const Specials = ({ specialsList }) => {
                 subtitle={special.subtitle}
                 price={special.price}
                 description={special.description}
+                rating={special.rating}
+                ratingCount={special.ratingCount}
                 addToCartCallback={() => special.addToCartCallback()}
                 orderCallback={() => special.orderCallback()}
               />
