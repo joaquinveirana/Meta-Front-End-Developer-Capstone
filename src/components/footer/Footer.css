@@ -17,7 +17,7 @@
     grid-template-columns: repeat(4, 1fr);
     margin: auto;
     min-width: 768px;
-    width: 60%;
+    width: 55%;
   }
 }
 
