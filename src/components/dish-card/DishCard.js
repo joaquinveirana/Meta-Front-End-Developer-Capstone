@@ -14,7 +14,6 @@ const DishCard = ({
   addToCartCallback,
   orderCallback,
 }) => {
-  console.log(rating);
   return (
     <article className='dishcard'>
       <img
@@ -24,32 +23,39 @@ const DishCard = ({
         title={imgAlt}
       />
       <div className='dishcard-content'>
-        <div>
-          <h2 className='dishcard-content-title'>{title}</h2>
+        <div className='dishcard-content-info'>
+          <h2 className='dishcard-content-info-title'>{title}</h2>
           {subtitle && (
-            <h2 className='dishcard-content-subtitle'>{subtitle}</h2>
+            <h2 className='dishcard-content-info-subtitle'>{subtitle}</h2>
           )}
-          <div className='dishcard-content-price'>
-            <data className='money dishcard-content-price-number' value={price}>
+          <div className='dishcard-content-info-price'>
+            <data
+              className='money dishcard-content-info-price-number'
+              value={price}
+            >
               ${price}
             </data>
-            {ratingCount ? (
-              <div className='money dishcard-content-price-rating'>
-                <ReactStars
-                  color2={'#ffd700'}
-                  edit={false}
-                  size={18}
-                  value={rating}
-                />
-                <span className='dishcard-content-rating-count'>
-                  ({ratingCount})
-                </span>
-              </div>
-            ) : (
-              <></>
-            )}
+            <div className='money dishcard-content-info-price-rating'>
+              {ratingCount ? (
+                <>
+                  <ReactStars
+                    color2={'#f4ce14'}
+                    edit={false}
+                    size={18}
+                    value={rating}
+                  />
+                  <span className='dishcard-content-info-rating-count'>
+                    ({ratingCount})
+                  </span>
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
-          <p className='dishcard-content-description'>{description}</p>
+          <p className='dishcard-content-info-description' title={description}>
+            {description}
+          </p>
         </div>
 
         <div className='dishcard-content-buttons'>
@@ -60,9 +66,9 @@ const DishCard = ({
             fillParent={true}
           ></Button>
           <Button
-            buttonType='secondary'
+            buttonType='light'
             path='/reservation'
-            innerText='Add to cart'
+            innerText='Add to cart	&#128722;'
             fillParent={true}
           ></Button>
         </div>

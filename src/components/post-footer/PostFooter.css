@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .postfooter {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+  }
+}
+
+.postfooter {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 30px;
+}

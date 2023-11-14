@@ -1,11 +1,20 @@
 import DishCard from '../dish-card/DishCard';
+import Button from '../button/Button';
 import './Specials.css';
 
 const Specials = ({ specialsList }) => {
   return (
     <section className='specials'>
       <main className='specials-content'>
-        <h1 className='specials-content-title'>Specials of this week</h1>
+        <div className='specials-content-title'>
+          <h1 className='specials-content-title-text'>Specials of this week</h1>
+          <Button
+            buttonType='primary'
+            path='/menu'
+            innerText='Online Menu'
+            fillParent={false}
+          />
+        </div>
         <div className='specials-content-cards'>
           {specialsList.map((special) => {
             return (

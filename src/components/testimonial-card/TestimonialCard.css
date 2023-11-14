@@ -1,0 +1,29 @@
+.testimonialcard {
+  background-color: var(--very-light-gray);
+  border-radius: 16px;
+  height: calc(100% - 15px);
+  padding: 15px;
+  width: calc(100% -15px);
+}
+
+.testimonialcard-header {
+  display: flex;
+}
+
+.testimonialcard-image {
+  border-radius: 50%;
+  max-height: 50px;
+}
+
+.testimonialcard-header-title {
+  margin: 0 10px;
+}
+
+.testimonialcard-header-title-text {
+  color: var(--very-dark-gray);
+  margin: 0;
+}
+
+.testimonialcard-review {
+  padding-top: 10px;
+}

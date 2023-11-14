@@ -1,6 +1,8 @@
 import Hero from '../../components/hero/Hero';
+import Testimonials from '../../components/testimonials/Testimonials';
 import Specials from '../../components/specials/Specials';
 import './Main.css';
+import About from '../../components/about/About';
 
 const specialsList = [
   {
@@ -59,11 +61,43 @@ const specialsList = [
   },
 ];
 
+const testimonialsList = [
+  {
+    imgPath: 'testimonial1.jpg',
+    name: 'Lisa',
+    description:
+      'Little Lemon is where casual meets flavor explosion. Love the grilled options.',
+    rating: 5,
+  },
+  {
+    imgPath: 'testimonial2.jpg',
+    name: 'Richard',
+    description:
+      'Little Lemon keeps it simple and delicious. Bonus: cozy vibes that make you feel right at home.',
+    rating: 4.5,
+  },
+  {
+    imgPath: 'testimonial3.jpg',
+    name: 'Phillip',
+    description:
+      'The flavors are great! The lemon-infused chicken is a game-changer',
+    rating: 4,
+  },
+  {
+    imgPath: 'testimonial4.jpg',
+    name: 'Kelly',
+    description: 'Amazing! I really recommend the Greek Salad',
+    rating: 5,
+  },
+];
+
 const Main = () => {
   return (
     <main>
       <Hero />
       <Specials specialsList={specialsList} />
+      <Testimonials testimonialsList={testimonialsList} />
+      <About />
     </main>
   );
 };

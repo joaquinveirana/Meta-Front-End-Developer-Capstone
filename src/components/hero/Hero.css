@@ -1,6 +1,13 @@
 @media (max-width: 768px) {
   .hero-content {
     display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    width: 100%;
+  }
+
+  .hero-content-information {
+    padding-bottom: 30px;
     width: 100%;
   }
 }
@@ -12,8 +19,14 @@
     min-width: 768px;
     width: 55%;
   }
+
   .hero-content-image {
     width: 60%;
+  }
+
+  .hero-content-information {
+    width: 40%;
+    padding-right: 30px;
   }
 }
 
@@ -21,11 +34,6 @@
   display: flex;
   padding: 30px 0;
   width: 100%;
-}
-
-.hero-content-information {
-  width: 40%;
-  padding-right: 30px;
 }
 
 .hero-content-information-title {

@@ -32,8 +32,18 @@
   color: black;
 }
 
+.button-secondary:hover {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
 .button-light {
   background-color: var(--light-gray);
+  color: var(--main-green);
+}
+
+.button-light:hover {
+  background-color: var(--main-yellow);
   color: var(--main-green);
 }
 

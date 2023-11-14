@@ -3,6 +3,7 @@ import Nav from './components/nav/Nav';
 import Main from './pages/main/Main';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import PostFooter from './components/post-footer/PostFooter';
 
 const navItems = [
   { text: 'HOME', path: '/home' },
@@ -21,6 +22,7 @@ function App() {
       </Header>
       <Main />
       <Footer navItems={navItems} />
+      <PostFooter />
     </>
   );
 }
