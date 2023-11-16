@@ -66,6 +66,7 @@
   }
 
   .link-list-desktop-item {
+    cursor: pointer;
     list-style-type: none;
     margin: 0 10px;
   }
@@ -79,5 +80,21 @@
   .link-list-desktop-item-text:hover {
     color: var(--main-yellow);
     transition: all 200ms ease-in;
+  }
+
+  .link-list-desktop-cart-bubble {
+    align-items: center;
+    background-color: var(--main-yellow);
+    border-radius: 50%;
+    color: var(--main-green);
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    height: 15px;
+    position: relative;
+    top: -8px;
+    right: -12px;
+    width: 15px;
   }
 }

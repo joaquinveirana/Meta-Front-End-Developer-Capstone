@@ -6,7 +6,7 @@ const Footer = (props) => {
       <div className='footer-content'>
         <div className='footer-content-image'>
           <img
-            src='Asset 18@4x.png'
+            src='/Asset 18@4x.png'
             height={150}
             alt='Little Lemon Footer Logo'
           />
@@ -16,9 +16,9 @@ const Footer = (props) => {
             <h6 className='footer-content-link footer-content-link-title'>
               NAVIGATION
             </h6>
-            {props.navItems.map((navItem) => {
+            {props.navItems.map((navItem, index) => {
               return (
-                <li className='footer-content-link'>
+                <li key={index} className='footer-content-link'>
                   <a className='footer-content-link-text' href={navItem.path}>
                     {navItem.text}
                   </a>

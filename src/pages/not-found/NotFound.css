@@ -1,0 +1,21 @@
+.notfound {
+  width: 100%;
+}
+
+.notfound-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 40px 0;
+  width: 55%;
+}
+
+.notfound-content-title {
+  color: var(--very-dark-gray);
+  font-size: 30px;
+}
+
+.notfound-content-image {
+  width: 40%;
+}

@@ -19,6 +19,7 @@ const Hero = () => {
             buttonType='primary'
             path='/reservation'
             innerText='Reserve a Table'
+            useShadow={true}
           ></Button>
         </aside>
         <aside

@@ -9,53 +9,57 @@
     display: grid;
     padding: 25px 15px;
   }
-
-  .dishcard-image {
-    height: 200px;
-  }
 }
 
 @media (min-width: 768px) {
   .dishcard:hover {
     translate: 0 -10px;
-    transition: all 150ms ease-in;
-  }
-
-  .dishcard-image {
-    height: 120px;
   }
 }
 
 .dishcard {
   border-radius: 16px;
   box-shadow: 5px 8px 18px 0px rgba(133, 134, 140, 1);
+  display: flex;
+  flex-direction: column;
   margin-bottom: 30px;
+  transition: all 150ms ease-in;
+  translate: 0 0;
   width: 31%;
   -moz-box-shadow: 5px 8px 18px 0px rgba(133, 134, 140, 1);
   -webkit-box-shadow: 5px 8px 18px 0px rgba(133, 134, 140, 1);
 }
 
-.dishcard-content {
-  display: grid;
-  grid-template-rows: 2fr 1fr 35px;
-  height: calc(100% - 200px);
-  padding: 15px;
-}
-
 .dishcard-image {
+  aspect-ratio: 16/10;
   border-radius: 16px 16px 0 0;
   width: 100%;
 }
 
+.dishcard-image img {
+  border-radius: 16px 16px 0 0;
+  height: 100%;
+  width: 100%;
+}
+
+.dishcard-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 15px;
+}
+
 .dishcard-content-info-title {
-  margin: 0;
   color: var(--very-dark-gray);
+  margin: 0;
+  text-overflow: ellipsis;
 }
 
 .dishcard-content-info-price-number {
+  color: var(--dark-gray);
   font-weight: 600;
   font-size: 20px;
-  color: var(--dark-gray);
 }
 
 .dishcard-content-info-price {
@@ -69,12 +73,13 @@
 }
 
 .dishcard-content-rating-count {
-  margin-top: 5px;
   font-size: 12px;
+  margin-top: 5px;
 }
 
 .dishcard-content-info-description {
   display: -webkit-box;
+  height: 150px;
   line-clamp: 7;
   margin-top: 5px;
   overflow: hidden;

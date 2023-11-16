@@ -16,12 +16,9 @@ const DishCard = ({
 }) => {
   return (
     <article className='dishcard'>
-      <img
-        className='dishcard-image'
-        src={imgPath}
-        alt={`${title} in card`}
-        title={imgAlt}
-      />
+      <div className='dishcard-image'>
+        <img src={imgPath} alt={`${title} in card`} title={imgAlt} />
+      </div>
       <div className='dishcard-content'>
         <div className='dishcard-content-info'>
           <h2 className='dishcard-content-info-title'>{title}</h2>
@@ -33,7 +30,7 @@ const DishCard = ({
               className='money dishcard-content-info-price-number'
               value={price}
             >
-              ${price}
+              ${price.toString()}
             </data>
             <div className='money dishcard-content-info-price-rating'>
               {ratingCount ? (

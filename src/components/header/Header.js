@@ -7,7 +7,7 @@ const Header = (props) => {
         <a href='/'>
           <img
             className='header-content-logo'
-            src='Asset 16@4x.png'
+            src='/Asset 16@4x.png'
             height={50}
             alt='Main logo'
           />
