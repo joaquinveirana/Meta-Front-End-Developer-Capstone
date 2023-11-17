@@ -1,3 +1,134 @@
+@media (max-width: 768px) {
+  .reservation-content {
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .reservation-content-form-top-button {
+    display: none;
+  }
+
+  .reservation-content-form-time {
+    flex-direction: column;
+  }
+
+  .reservation-content-form-bottom-button {
+    margin: 40px 0;
+    width: calc(100% - 40px);
+  }
+
+  .reservation-content-image-title {
+    width: calc(100% - 40px);
+  }
+
+  .reservation-content-image {
+    border-radius: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media (min-width: 768px) {
+  .reservation-content {
+    margin: auto;
+    min-width: 768px;
+    padding: 30px 0;
+    width: 55%;
+  }
+
+  .reservation-content-form-title {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+
+  .reservation-content-form-bottom-button {
+    display: none;
+  }
+
+  .reservation-content-image {
+    border-radius: 20px;
+    height: 600px;
+    object-fit: cover;
+    object-position: 20% 50%;
+    width: 100%;
+  }
+}
+
 .reservation {
   width: 100%;
+}
+
+.reservation-background {
+  background-color: var(--main-green);
+  padding: 20px 0;
+}
+
+.reservation-content-image-title-text {
+  color: var(--main-yellow);
+  font-size: 38px;
+  margin-top: 0;
+}
+
+.reservation-content-form-title-text {
+  color: var(--main-green);
+  font-size: 38px;
+  margin: 0;
+}
+
+.reservation-content-subtitle {
+  color: var(--main-green);
+  font-size: 30px;
+  margin-right: 30px;
+}
+
+.reservation-content-form-time {
+  display: flex;
+}
+
+.reservation-content-form-hour {
+  background-color: var(--light-gray);
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+.reservation-content-form-hour-selected {
+  background-color: var(--main-green);
+  color: white;
+}
+
+.reservation-content-form-hour:hover {
+  background-color: var(--main-green);
+  color: white;
+  transition: all 200ms ease;
+}
+
+.reservation-content-form-hour-taken {
+  background-color: var(--taken-red);
+  border-radius: 16px;
+  color: var(--medium-gray);
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+.reservation-content-form-time-date {
+  padding-right: 20px;
+}
+
+.reservation-content-select {
+  border: 0;
+  margin-top: 10px;
+}
+
+.reservation-content-form-hours-buttons {
+  display: flex;
+  flex-wrap: wrap;
 }

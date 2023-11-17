@@ -3,6 +3,7 @@ import Button from '../button/Button';
 import ReactStars from 'react-stars';
 
 const DishCard = ({
+  id,
   imgPath,
   imgAlt,
   title,
@@ -64,7 +65,7 @@ const DishCard = ({
           ></Button>
           <Button
             buttonType='light'
-            path='/reservation'
+            path={`/cart/${id}`}
             innerText='Add to cart	&#128722;'
             fillParent={true}
           ></Button>

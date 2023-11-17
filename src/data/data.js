@@ -118,7 +118,7 @@ export const getMenu = () => {
 };
 
 export const getMenuById = (id) => {
-  return menuList.find((menu) => menu.id === id);
+  return menuList.find((menu) => menu.id.toString() === id);
 };
 
 export const getTestimonials = () => {

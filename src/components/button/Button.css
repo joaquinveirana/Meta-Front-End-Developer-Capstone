@@ -30,8 +30,8 @@
 }
 
 .button-secondary:hover {
-  background-color: var(--light-gray);
-  color: var(--dark-gray);
+  background-color: var(--dark-gray);
+  color: white;
 }
 
 .button-light {
@@ -53,4 +53,15 @@
   -webkit-box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
   -moz-box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
   box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
+}
+
+.button-disabled {
+  background-color: var(--medium-gray);
+  color: var(--dark-gray);
+  cursor: default;
+}
+
+.button-disabled:hover {
+  background-color: var(--medium-gray);
+  color: var(--dark-gray);
 }

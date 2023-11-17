@@ -9,9 +9,9 @@ import Nav from './components/nav/Nav';
 import Footer from './components/footer/Footer';
 import PostFooter from './components/post-footer/PostFooter';
 import AboutPage from './pages/about/About';
-import OrderPage from './pages/order/Order';
 import NotFound from './pages/not-found/NotFound';
 import MenuPage from './pages/menu/Menu';
+import CartPage from './pages/cart/Cart';
 import ReservationPage from './pages/reservation/Reservation';
 
 const router = createBrowserRouter([
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
   },
   {
-    path: '/order/:dishId',
-    element: <OrderPage />,
+    path: '/cart/:dishId',
+    element: <CartPage />,
   },
   {
     path: '/about',

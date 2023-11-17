@@ -22,6 +22,7 @@ const MenuCards = ({ specialsList, title, isSpecial }) => {
           {specialsList.map((special) => {
             return (
               <DishCard
+                id={special.id}
                 imgPath={special.imgPath}
                 title={special.title}
                 subtitle={special.subtitle}
