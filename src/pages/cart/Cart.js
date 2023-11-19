@@ -1,15 +1,18 @@
 import './Cart.css';
 import { useState, useEffect } from 'react';
-import { getMenuById } from '../../data/data';
 import { useParams } from 'react-router-dom';
+import { getMenuById } from '../../data/data';
 
-const CartPage = () => {
+const CartPage = ({ addItemCallback, deleteItemCallback }) => {
   const [menu, setMenu] = useState(null);
   let { dishId } = useParams();
   useEffect(() => {
-    setMenu(getMenuById(dishId));
-    console.log(menu);
-  }, []);
+    const dishAddedToCart = getMenuById(dishId);
+    if (dishAddedToCart) {
+      addItemCallback();
+      setMenu(getMenuById(dishId));
+    }
+  }, [dishId]);
 
   return <section className='cart'></section>;
 };

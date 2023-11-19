@@ -1,6 +1,6 @@
 import './DishCard.css';
-import Button from '../button/Button';
 import ReactStars from 'react-stars';
+import Button from '../button/Button';
 
 const DishCard = ({
   id,
@@ -59,7 +59,7 @@ const DishCard = ({
         <div className='dishcard-content-buttons'>
           <Button
             buttonType='primary'
-            path='/reservation'
+            path='/login'
             innerText='Order Now'
             fillParent={true}
           ></Button>

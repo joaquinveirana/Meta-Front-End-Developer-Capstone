@@ -1,5 +1,5 @@
-import TestimonialCard from '../testimonial-card/TestimonialCard';
 import './Testimonials.css';
+import TestimonialCard from '../testimonial-card/TestimonialCard';
 
 const Testimonials = ({ testimonialsList }) => {
   return (
@@ -11,9 +11,10 @@ const Testimonials = ({ testimonialsList }) => {
           </h1>
         </div>
         <div className='testimonials-content-cards'>
-          {testimonialsList.map((testimonial) => {
+          {testimonialsList.map((testimonial, index) => {
             return (
               <TestimonialCard
+                key={index}
                 profileImgPath={testimonial.imgPath}
                 name={testimonial.name}
                 description={testimonial.description}

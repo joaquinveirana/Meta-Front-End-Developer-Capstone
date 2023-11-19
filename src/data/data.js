@@ -1,3 +1,5 @@
+const users = [{ email: 'user@test.com', password: 'user' }];
+
 const menuList = [
   {
     id: 0,
@@ -123,4 +125,10 @@ export const getMenuById = (id) => {
 
 export const getTestimonials = () => {
   return testimonialsList;
+};
+
+export const login = (email, password) => {
+  return users.find(
+    (user) => user.email === email && user.password === password
+  );
 };

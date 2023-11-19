@@ -1,31 +1,82 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import Hero from './components/hero/Hero';
-import Testimonials from './components/testimonials/Testimonials';
-import MenuCards from './components/menu-cards/MenuCards';
-import About from './components/about/About';
+import { useState } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { getSpecials, getTestimonials } from './data/data';
+import Header from './components/header/Header';
+import Nav from './components/nav/Nav';
+import Footer from './components/footer/Footer';
+import PostFooter from './components/post-footer/PostFooter';
+
+import MainPage from './pages/main/Main';
+import AboutPage from './pages/about/About';
+import MenuPage from './pages/menu/Menu';
+import ReservationPage from './pages/reservation/Reservation';
+import LoginPage from './pages/login/Login';
+import CartPage from './pages/cart/Cart';
+import NotFound from './pages/not-found/NotFound';
+
+const navItems = [
+  { text: 'HOME', path: '/' },
+  { text: 'ABOUT', path: '/about' },
+  { text: 'MENU', path: '/menu' },
+  { text: 'RESERVATION', path: '/reservation' },
+  { text: 'LOG IN', path: '/login' },
+];
 
 function App() {
-  const [specialsList, setSpecialsList] = useState([]);
-  const [testimonialsList, setTestimonialsList] = useState([]);
+  const [cartItemsCounter, setCartItemsCounter] = useState(0);
 
-  useEffect(() => {
-    setTestimonialsList(getTestimonials());
-    setSpecialsList(getSpecials());
-  }, []);
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <MainPage />,
+      errorElement: <NotFound />,
+    },
+    {
+      path: '/cart',
+      element: <CartPage />,
+    },
+    {
+      path: '/cart/:dishId',
+      element: (
+        <CartPage
+          addItemCallback={() => setCartItemsCounter(cartItemsCounter + 1)}
+          deleteItemCallback={() => setCartItemsCounter(cartItemsCounter - 1)}
+        />
+      ),
+    },
+    {
+      path: '/about',
+      element: <AboutPage />,
+    },
+    {
+      path: '/menu',
+      element: <MenuPage />,
+    },
+    {
+      path: '/reservation',
+      element: <ReservationPage />,
+    },
+    {
+      path: '/login',
+      element: <LoginPage />,
+    },
+  ]);
 
   return (
     <main>
-      <Hero />
-      <MenuCards
-        specialsList={specialsList}
-        title={'Specials of this week'}
-        isSpecial={true}
-      />
-      <Testimonials testimonialsList={testimonialsList} />
-      <About />
+      {window.location.pathname !== '/login' && (
+        <Header>
+          <Nav navItems={navItems} cartItemsCounter={cartItemsCounter} />
+        </Header>
+      )}
+      <RouterProvider router={router} />
+      {window.location.pathname !== '/login' && (
+        <>
+          <Footer navItems={navItems} />
+          <PostFooter />
+        </>
+      )}
     </main>
   );
 }

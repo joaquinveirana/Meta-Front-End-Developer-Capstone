@@ -1,0 +1,127 @@
+@media (max-width: 768px) {
+  .login-content {
+    height: 75vh;
+    width: 90%;
+  }
+
+  .login-content-form {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-content {
+    width: 35%;
+  }
+
+  .login-content-form {
+    justify-content: space-around;
+  }
+
+  .login-content-form {
+    width: 70%;
+  }
+}
+
+.login {
+  align-items: center;
+  background-color: var(--main-green);
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.login-content {
+  align-items: center;
+  background-color: white;
+  border-radius: 16px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.login-content-image {
+  margin-top: 30px;
+  width: 200px;
+}
+
+.login-content-form {
+  flex-direction: column;
+  display: flex;
+  height: 60%;
+}
+
+.login-content-form-title {
+  color: var(--main-green);
+  font-size: 38px;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.login-content-form-subtitle {
+  color: var(--dark-gray);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.login-content-form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-content-form-field {
+  background-color: var(--very-light-gray);
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  border-radius: 0.2rem;
+  color: var(--dark-gray);
+  display: block;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 1.1rem 2rem;
+  transition: all 0.3s;
+}
+
+.login-content-form-submit {
+  background-color: var(--very-light-gray);
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  color: var(--dark-gray);
+  display: block;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  transition: all 0.3s;
+}
+
+.login-content-form-submit:hover {
+  background-color: var(--main-yellow);
+  color: black;
+}
+
+.login-content-register-label {
+  color: var(--dark-gray);
+  margin-bottom: 30px;
+}
+
+.login-content-register {
+  color: var(--dark-gray);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-content-form-submit {
+  background-color: var(--very-light-gray);
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  color: var(--dark-gray);
+  display: block;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 1.1rem 2rem;
+  transition: all 0.3s;
+}

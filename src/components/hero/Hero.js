@@ -1,5 +1,5 @@
-import Button from '../button/Button';
 import './Hero.css';
+import Button from '../button/Button';
 
 const Hero = () => {
   return (

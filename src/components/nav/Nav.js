@@ -1,11 +1,11 @@
 import './Nav.css';
+import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose, AiOutlineShoppingCart } from 'react-icons/ai';
 
-import { useState } from 'react';
-
 const Nav = ({ navItems, cartItemsCounter }) => {
   const [openNav, setOpenNav] = useState(false);
+
   return (
     <nav>
       <ul className='link-list-desktop'>

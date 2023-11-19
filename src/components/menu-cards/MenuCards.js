@@ -1,6 +1,6 @@
+import './MenuCards.css';
 import DishCard from '../dish-card/DishCard';
 import Button from '../button/Button';
-import './MenuCards.css';
 
 const MenuCards = ({ specialsList, title, isSpecial }) => {
   return (
@@ -22,6 +22,7 @@ const MenuCards = ({ specialsList, title, isSpecial }) => {
           {specialsList.map((special) => {
             return (
               <DishCard
+                key={special.id}
                 id={special.id}
                 imgPath={special.imgPath}
                 title={special.title}

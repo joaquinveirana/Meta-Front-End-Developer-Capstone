@@ -1,10 +1,9 @@
 import './Reservation.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
-
 import { useState, useEffect } from 'react';
-import Button from '../../components/button/Button';
 import Calendar from 'react-calendar';
+import Button from '../../components/button/Button';
 
 const ReservationPage = () => {
   const [dateSelected, setDateSelected] = useState(new Date());
