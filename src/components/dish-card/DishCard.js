@@ -13,7 +13,6 @@ const DishCard = ({
   rating,
   ratingCount,
   addToCartCallback,
-  orderCallback,
 }) => {
   return (
     <article className='dishcard'>
@@ -65,7 +64,7 @@ const DishCard = ({
           ></Button>
           <Button
             buttonType='light'
-            path={`/cart/${id}`}
+            callback={() => addToCartCallback(id)}
             innerText='Add to cart	&#128722;'
             fillParent={true}
           ></Button>

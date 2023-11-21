@@ -1,4 +1,5 @@
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = (props) => {
   return (
@@ -19,9 +20,9 @@ const Footer = (props) => {
             {props.navItems.map((navItem, index) => {
               return (
                 <li key={index} className='footer-content-link'>
-                  <a className='footer-content-link-text' href={navItem.path}>
+                  <Link className='footer-content-link-text' to={navItem.path}>
                     {navItem.text}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -46,19 +47,19 @@ const Footer = (props) => {
               SOCIALS
             </h6>
             <li className='footer-content-link'>
-              <a className='footer-content-link-text' href=''>
+              <Link className='footer-content-link-text' to={''}>
                 Facebook
-              </a>
+              </Link>
             </li>
             <li className='footer-content-link'>
-              <a className='footer-content-link-text' href=''>
+              <Link className='footer-content-link-text' to={''}>
                 Instagram
-              </a>
+              </Link>
             </li>
             <li className='footer-content-link'>
-              <a className='footer-content-link-text' href=''>
+              <Link className='footer-content-link-text' to={''}>
                 Tik Tok
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -2,6 +2,7 @@ import './Nav.css';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose, AiOutlineShoppingCart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const Nav = ({ navItems, cartItemsCounter }) => {
   const [openNav, setOpenNav] = useState(false);
@@ -12,20 +13,20 @@ const Nav = ({ navItems, cartItemsCounter }) => {
         {navItems.map((navItem, index) => {
           return (
             <li key={index} className='link-list-desktop-item'>
-              <a className='link-list-desktop-item-text' href={navItem.path}>
+              <Link className='link-list-desktop-item-text' to={navItem.path}>
                 {navItem.text}
-              </a>
+              </Link>
             </li>
           );
         })}
         <li className='link-list-desktop-item'>
-          <a href='/cart'>
+          <Link to='/cart'>
             <AiOutlineShoppingCart size={20} color='495e57' />
-          </a>
+          </Link>
 
           {cartItemsCounter !== 0 && (
             <div className='link-list-desktop-cart-bubble'>
-              {cartItemsCounter}
+              {cartItemsCounter > 9 ? '9+' : cartItemsCounter}
             </div>
           )}
         </li>
@@ -53,13 +54,13 @@ const Nav = ({ navItems, cartItemsCounter }) => {
               {navItems.map((navItem) => {
                 return (
                   <li className='link-list-mobile-panel-item'>
-                    <a
+                    <Link
                       className='link-list-mobile-panel-item-text'
-                      href={navItem.path}
+                      to={navItem.path}
                       onClick={() => setOpenNav(false)}
                     >
                       {navItem.text}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

@@ -1,11 +1,6 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-import Header from './components/header/Header';
-import Nav from './components/nav/Nav';
-import Footer from './components/footer/Footer';
-import PostFooter from './components/post-footer/PostFooter';
 
 import MainPage from './pages/main/Main';
 import AboutPage from './pages/about/About';
@@ -14,48 +9,54 @@ import ReservationPage from './pages/reservation/Reservation';
 import LoginPage from './pages/login/Login';
 import CartPage from './pages/cart/Cart';
 import NotFound from './pages/not-found/NotFound';
+import WrapperPage from './pages/wrapper/Wrapper';
 
-const navItems = [
-  { text: 'HOME', path: '/' },
-  { text: 'ABOUT', path: '/about' },
-  { text: 'MENU', path: '/menu' },
-  { text: 'RESERVATION', path: '/reservation' },
-  { text: 'LOG IN', path: '/login' },
-];
+// Cart Management using context hook
+export const CartContext = createContext();
 
 function App() {
-  const [cartItemsCounter, setCartItemsCounter] = useState(0);
-
+  const [cartItems, setCartItems] = useState([]);
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <MainPage />,
+      element: (
+        <WrapperPage>
+          <MainPage />
+        </WrapperPage>
+      ),
       errorElement: <NotFound />,
     },
     {
       path: '/cart',
-      element: <CartPage />,
-    },
-    {
-      path: '/cart/:dishId',
       element: (
-        <CartPage
-          addItemCallback={() => setCartItemsCounter(cartItemsCounter + 1)}
-          deleteItemCallback={() => setCartItemsCounter(cartItemsCounter - 1)}
-        />
+        <WrapperPage>
+          <CartPage />
+        </WrapperPage>
       ),
     },
     {
       path: '/about',
-      element: <AboutPage />,
+      element: (
+        <WrapperPage>
+          <AboutPage />
+        </WrapperPage>
+      ),
     },
     {
       path: '/menu',
-      element: <MenuPage />,
+      element: (
+        <WrapperPage>
+          <MenuPage />
+        </WrapperPage>
+      ),
     },
     {
       path: '/reservation',
-      element: <ReservationPage />,
+      element: (
+        <WrapperPage>
+          <ReservationPage />
+        </WrapperPage>
+      ),
     },
     {
       path: '/login',
@@ -64,20 +65,9 @@ function App() {
   ]);
 
   return (
-    <main>
-      {window.location.pathname !== '/login' && (
-        <Header>
-          <Nav navItems={navItems} cartItemsCounter={cartItemsCounter} />
-        </Header>
-      )}
+    <CartContext.Provider value={{ cartItems, setCartItems }}>
       <RouterProvider router={router} />
-      {window.location.pathname !== '/login' && (
-        <>
-          <Footer navItems={navItems} />
-          <PostFooter />
-        </>
-      )}
-    </main>
+    </CartContext.Provider>
   );
 }
 

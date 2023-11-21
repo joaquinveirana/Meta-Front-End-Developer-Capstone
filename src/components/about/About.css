@@ -144,9 +144,9 @@
 
 .about-content-image-pic {
   border-radius: 16px;
+  box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
   -webkit-box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
   -moz-box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
-  box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
 }
 
 .about-content-information-title {

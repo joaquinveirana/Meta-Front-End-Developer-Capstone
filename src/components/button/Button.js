@@ -1,4 +1,5 @@
 import './Button.css';
+import { useNavigate } from 'react-router-dom';
 
 const Button = ({
   buttonType,
@@ -9,6 +10,8 @@ const Button = ({
   disabled,
   callback,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <button
       className={
@@ -23,7 +26,7 @@ const Button = ({
         (fillParent && 'fill-parent')
       }
       onClick={() => {
-        if (path) window.location.href = path;
+        if (path) navigate(path);
         else callback();
       }}
     >

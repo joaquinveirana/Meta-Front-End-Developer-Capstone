@@ -120,7 +120,7 @@ export const getMenu = () => {
 };
 
 export const getMenuById = (id) => {
-  return menuList.find((menu) => menu.id.toString() === id);
+  return menuList.find((menu) => menu.id.toString() === id.toString());
 };
 
 export const getTestimonials = () => {

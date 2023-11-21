@@ -1,14 +1,17 @@
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { login } from '../../data/data';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: { email: '', password: '' },
     onSubmit: (values) => {
       if (login(values.email, values.password)) {
-        window.location.href = '/';
+        navigate('/login');
       }
     },
     validationSchema: Yup.object({

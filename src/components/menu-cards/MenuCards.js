@@ -1,8 +1,15 @@
 import './MenuCards.css';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../App';
 import DishCard from '../dish-card/DishCard';
 import Button from '../button/Button';
+import { getMenuById } from '../../data/data';
 
 const MenuCards = ({ specialsList, title, isSpecial }) => {
+  const { cartItems, setCartItems } = useContext(CartContext);
+  const navigate = useNavigate();
+
   return (
     <section className='specials'>
       <main className='specials-content'>
@@ -31,8 +38,21 @@ const MenuCards = ({ specialsList, title, isSpecial }) => {
                 description={special.description}
                 rating={special.rating}
                 ratingCount={special.ratingCount}
-                addToCartCallback={(id) => {}}
-                orderCallback={(id) => {}}
+                addToCartCallback={(id) => {
+                  const dishAddedToCart = getMenuById(id);
+                  if (dishAddedToCart) {
+                    const sameItemInCart = cartItems.find(
+                      (item) => item.id === dishAddedToCart.id
+                    );
+                    if (sameItemInCart) sameItemInCart['quantity'] += 1;
+                    else {
+                      dishAddedToCart['quantity'] = 1;
+                      cartItems.push(dishAddedToCart);
+                    }
+                    setCartItems(cartItems);
+                    navigate('/cart');
+                  }
+                }}
               />
             );
           })}
