@@ -6,7 +6,7 @@
   .link-list-mobile {
     display: flex;
     height: 100%;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 15px;
   }
 
@@ -22,7 +22,7 @@
 
   .link-list-mobile-panel-close {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100%;
   }
 
@@ -34,7 +34,7 @@
     align-items: center;
     cursor: pointer;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .link-list-mobile-panel-item {
@@ -62,7 +62,7 @@
 
   .link-list-desktop {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .link-list-desktop-item {
