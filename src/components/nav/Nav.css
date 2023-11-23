@@ -11,7 +11,7 @@
   }
 
   .link-list-mobile-panel {
-    background-color: rgba(222, 222, 222, 0.9);
+    background-color: rgba(222, 222, 222, 1);
     height: 100vh;
     position: absolute;
     right: 0;
@@ -97,4 +97,10 @@
     right: -12px;
     width: 15px;
   }
+}
+
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
 }

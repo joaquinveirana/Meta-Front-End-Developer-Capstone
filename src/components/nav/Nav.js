@@ -41,7 +41,7 @@ const Nav = ({ navItems, cartItemsCounter }) => {
             />
           </div>
         ) : (
-          <div className='link-list-mobile-panel'>
+          <div className={`link-list-mobile-panel ${openNav && 'nav-fixed'}`}>
             <div className='link-list-mobile-panel-close'>
               <AiOutlineClose
                 size={25}
@@ -64,6 +64,15 @@ const Nav = ({ navItems, cartItemsCounter }) => {
                   </li>
                 );
               })}
+              <li className='link-list-mobile-panel-item'>
+                <Link
+                  className='link-list-mobile-panel-item-text'
+                  to='/cart'
+                  onClick={() => setOpenNav(false)}
+                >
+                  CART
+                </Link>
+              </li>
             </ul>
           </div>
         )}

@@ -90,13 +90,15 @@ const CartPage = () => {
               <h2>Total:</h2>
               <h2>${calculateTotal()}</h2>
             </div>
-            <Button
-              buttonType='secondary'
-              path='#'
-              innerText='Checkout'
-              fillParent={true}
-              useShadow={true}
-            />
+            <div className='cart-content-items-checkout-price'>
+              <Button
+                buttonType='secondary'
+                path='#'
+                innerText='Checkout'
+                fillParent={true}
+                useShadow={false}
+              />
+            </div>
           </div>
         </div>
       </div>

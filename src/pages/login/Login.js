@@ -11,7 +11,7 @@ const LoginPage = () => {
     initialValues: { email: '', password: '' },
     onSubmit: (values) => {
       if (login(values.email, values.password)) {
-        navigate('/login');
+        navigate('/');
       }
     },
     validationSchema: Yup.object({
