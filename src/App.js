@@ -1,5 +1,5 @@
+import React, { useState, createContext } from 'react';
 import './App.css';
-import { useState, createContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainPage from './pages/main/Main';
