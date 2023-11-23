@@ -1,3 +1,4 @@
+import React from 'react';
 import './TestimonialCard.css';
 import ReactStars from 'react-stars';
 
@@ -21,7 +22,9 @@ const TestimonialCard = ({ profileImgPath, name, description, rating }) => {
         </div>
       </div>
       <div className='testimonialcard-review'>
-        <div className='testimonialcard-review-text'>"{description}"</div>
+        <div className='testimonialcard-review-text'>
+          &ldquo;{description}&ldquo;
+        </div>
       </div>
     </article>
   );

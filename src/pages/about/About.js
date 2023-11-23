@@ -1,3 +1,4 @@
+import React from 'react';
 import './About.css';
 import About from '../../components/about/About';
 

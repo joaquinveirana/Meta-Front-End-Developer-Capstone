@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import Header from '../../components/header/Header';
 import Nav from '../../components/nav/Nav';
 import Footer from '../../components/footer/Footer';
@@ -14,7 +14,7 @@ const navItems = [
 ];
 
 const WrapperPage = ({ children }) => {
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   return (
     <>
       <Header>

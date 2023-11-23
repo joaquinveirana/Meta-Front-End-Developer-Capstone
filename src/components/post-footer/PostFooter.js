@@ -1,3 +1,4 @@
+import React from 'react';
 import './PostFooter.css';
 
 const PostFooter = () => {

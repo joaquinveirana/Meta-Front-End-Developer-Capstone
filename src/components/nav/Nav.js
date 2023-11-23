@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import './Nav.css';
-import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose, AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -51,9 +51,9 @@ const Nav = ({ navItems, cartItemsCounter }) => {
               />
             </div>
             <ul>
-              {navItems.map((navItem) => {
+              {navItems.map((navItem, index) => {
                 return (
-                  <li className='link-list-mobile-panel-item'>
+                  <li key={index} className='link-list-mobile-panel-item'>
                     <Link
                       className='link-list-mobile-panel-item-text'
                       to={navItem.path}

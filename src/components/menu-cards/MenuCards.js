@@ -1,5 +1,5 @@
+import React, { useContext } from 'react';
 import './MenuCards.css';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../App';
 import DishCard from '../dish-card/DishCard';

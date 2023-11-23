@@ -1,3 +1,4 @@
+import React from 'react';
 import './Testimonials.css';
 import TestimonialCard from '../testimonial-card/TestimonialCard';
 

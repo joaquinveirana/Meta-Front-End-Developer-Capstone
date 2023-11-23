@@ -1,5 +1,5 @@
+import React from 'react';
 import './CartCard.css';
-
 import { AiOutlineClose } from 'react-icons/ai';
 
 const CartCard = ({

@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import './Main.css';
-import { useState, useEffect } from 'react';
 import Hero from '../../components/hero/Hero';
 import Testimonials from '../../components/testimonials/Testimonials';
 import MenuCards from '../../components/menu-cards/MenuCards';

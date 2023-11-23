@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import './Reservation.css';
 import 'react-calendar/dist/Calendar.css';
-import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import Button from '../../components/button/Button';
 
@@ -29,7 +29,7 @@ const ReservationPage = () => {
       <section className='reservation'>
         <main className='reservation-content'>
           <form name='reservationForm'>
-            <div main className='reservation-content-form-title'>
+            <div className='reservation-content-form-title'>
               <h1 className='reservation-content-form-title-text'>
                 Reserve a table!
               </h1>

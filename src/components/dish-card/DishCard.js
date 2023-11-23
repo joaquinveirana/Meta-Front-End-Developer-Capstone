@@ -1,3 +1,4 @@
+import React from 'react';
 import './DishCard.css';
 import ReactStars from 'react-stars';
 import Button from '../button/Button';

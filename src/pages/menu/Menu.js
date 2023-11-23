@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import './Menu.css';
-import { useState, useEffect } from 'react';
 import MenuCards from '../../components/menu-cards/MenuCards';
 import { getMenu } from '../../data/data';
 

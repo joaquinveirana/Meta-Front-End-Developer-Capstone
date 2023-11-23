@@ -1,3 +1,4 @@
+import React from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -64,7 +65,7 @@ const LoginPage = () => {
         </form>
 
         <p className='login-content-register-label'>
-          Don't have an account?{' '}
+          Don&quot;t have an account?{' '}
           <a className='login-content-register' href='#'>
             Register now
           </a>
