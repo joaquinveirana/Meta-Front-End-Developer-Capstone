@@ -26,7 +26,7 @@
   <img alt="Logo" height="600" src="public/demo-mobile.gif" />
 </div>
 
-## Instalación
+## Install
 
 1. 🛠 Installation & Set Up:
 
