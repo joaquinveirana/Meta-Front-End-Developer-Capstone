@@ -15,7 +15,7 @@
 </p>
 
 <h2 align="center">
-    Access >><a href="" target="_blank">here</a><<
+    Access >><a href="https://main--prismatic-lebkuchen-0955ec.netlify.app/" target="_blank">here</a><<
 </h2>
 
 <div align="center">
@@ -26,7 +26,7 @@
   <img alt="Logo" height="600" src="public/demo-mobile.gif" />
 </div>
 
-## Instalación
+## Install
 
 1. 🛠 Installation & Set Up:
 
