@@ -59,6 +59,10 @@
   width: 100%;
 }
 
+.reservation-noscroll {
+  overflow: hidden;
+}
+
 .reservation-background {
   background-color: var(--main-green);
   padding: 20px 0;
@@ -79,6 +83,7 @@
 .reservation-content-subtitle {
   color: var(--main-green);
   font-size: 30px;
+  margin-bottom: 10px;
   margin-right: 30px;
 }
 
@@ -131,4 +136,23 @@
 .reservation-content-form-hours-buttons {
   display: flex;
   flex-wrap: wrap;
+}
+
+.reservation-content-form-hours-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reservation-content-form-hours-buttons-input {
+  background-color: var(--very-light-gray);
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  border-radius: 0.2rem;
+  color: var(--dark-gray);
+  display: block;
+  font-size: 1.1rem;
+  margin: 10px 0 0 0;
+  padding: 1rem 1.5rem;
+  transition: all 0.3s;
+  width: 60%;
 }

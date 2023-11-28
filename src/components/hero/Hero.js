@@ -17,10 +17,10 @@ const Hero = () => {
             the essence of the Mediterranean.
           </p>
           <Button
-            buttonType='primary'
+            buttonType='secondary'
             path='/reservation'
             innerText='Reserve a Table'
-            useShadow={true}
+            useShadow={false}
           ></Button>
         </aside>
         <aside

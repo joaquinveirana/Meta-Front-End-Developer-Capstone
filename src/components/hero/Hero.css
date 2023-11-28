@@ -31,34 +31,32 @@
 }
 
 .hero {
+  background-color: var(--main-green);
   display: flex;
   padding: 30px 0;
   width: 100%;
 }
 
 .hero-content-information-title {
-  color: var(--main-green);
+  color: var(--main-yellow);
   font-size: 42px;
   margin: 0;
 }
 
 .hero-content-information-subtitle {
-  color: var(--dark-gray);
+  color: white;
   font-size: 28px;
   font-weight: 400;
   margin: 10px 0;
 }
 
 .hero-content-information-description {
-  color: var(--dark-gray);
+  color: white;
   font-size: 18px;
   font-weight: 400;
 }
 
 .hero-content-image-pic {
   border-radius: 16px;
-  box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
-  -webkit-box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
-  -moz-box-shadow: 2px 8px 13px -1px rgba(153, 155, 177, 1);
   width: 100%;
 }

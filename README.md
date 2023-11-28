@@ -11,7 +11,7 @@
 
 <p align="center">
     This is the website I designed and created for a restaurant called Little Lemon. The project features the home, the about, the menu, the reservation, the login, and the cart pages.
-    I used some React Hooks such as useState, useEffect, useContext and useNavigate from React Router, and I used some external dependencies aswell such as react-calendar, react-stars and Yup-Formik.
+    I used some React Hooks such as useState, useEffect, useContext and useNavigate from React Router, and I used some external dependencies aswell such as react-calendar, react-stars, react-notifications and Yup-Formik. For the reservation functionality I used fetch API and mockAPI as a mock back end.
 </p>
 
 <h2 align="center">

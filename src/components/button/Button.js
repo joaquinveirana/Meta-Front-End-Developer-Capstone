@@ -26,7 +26,8 @@ const Button = ({
         ' ' +
         (fillParent && 'fill-parent')
       }
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault();
         if (path) navigate(path);
         else callback();
       }}

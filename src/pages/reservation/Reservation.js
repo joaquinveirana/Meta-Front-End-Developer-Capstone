@@ -1,32 +1,111 @@
 import React, { useState, useEffect } from 'react';
 import './Reservation.css';
 import 'react-calendar/dist/Calendar.css';
+import 'react-notifications/lib/notifications.css';
 import Calendar from 'react-calendar';
 import Button from '../../components/button/Button';
+import { NotificationContainer } from 'react-notifications';
+import createNotification from '../../components/notification/Notification';
+import differenceInDays from 'date-fns/differenceInDays';
+
+const fetchGetURL = 'https://5f4d322aeeec51001608e934.mockapi.io/reservation';
+const fetchPostURL = 'https://5f4d322aeeec51001608e934.mockapi.io/reservation';
+const defaultHours = [
+  { time: 16, taken: false },
+  { time: 17, taken: false },
+  { time: 18, taken: false },
+  { time: 19, taken: false },
+  { time: 20, taken: false },
+];
+const defaultOccasion = [
+  { occasion: 'Birthday' },
+  { occasion: 'Anniversary' },
+  { occasion: 'Other' },
+];
+
+const createReservationsMap = (resList) => {
+  let res = {};
+  for (const reservation of resList) {
+    let date = new Date();
+    date.setDate(date.getDate() + reservation.day);
+    const adjustedDay = date.getDate();
+    reservation.day = adjustedDay;
+    if (res[reservation.day])
+      res[reservation.day] = res[reservation.day].concat([reservation]);
+    else res[reservation.day] = [reservation];
+  }
+  return res;
+};
 
 const ReservationPage = () => {
-  const [dateSelected, setDateSelected] = useState(new Date());
+  const [reservationObtained, setReservationObtained] = useState(null);
+  const [dateSelected, setDateSelected] = useState(null);
   const [hourSelected, setHourSelected] = useState(null);
   const [guestsSelected, setGuestsSelected] = useState(null);
-  const [hours, setHours] = useState([]);
-  const [guests, setGuests] = useState([]);
+  const [occasionSelected, setOccasionSelected] = useState(null);
+  const [hours, setHours] = useState(defaultHours);
+  const [reservationMade, setReservationMade] = useState(false);
 
+  // Get reservations
   useEffect(() => {
-    let newHours = [];
-    let newGuests = [];
-    for (let i = 0; i < 10; i++) {
-      newHours.push({ time: i + 14, taken: Math.random() < 0.3 });
+    fetch(fetchGetURL)
+      .then((response) => response.json())
+      .then((data) => setReservationObtained(createReservationsMap(data)))
+      .then(() =>
+        dateSelected === null
+          ? setDateSelected(new Date())
+          : setDateSelected(new Date(dateSelected))
+      )
+      .catch((err) => {
+        createNotification('error', 'Get reservations failed', err)();
+      });
+  }, [reservationMade]);
+
+  // Set reserved hours
+  useEffect(() => {
+    if (reservationObtained && dateSelected) {
+      let newHours = JSON.parse(JSON.stringify(defaultHours));
+      if (reservationObtained[dateSelected.getDate()])
+        for (const reservation of reservationObtained[dateSelected.getDate()]) {
+          let reservedHour = newHours.find(
+            (elem) => elem.time === reservation.hour
+          );
+          if (reservedHour) reservedHour.taken = true;
+        }
+      setHours(newHours);
     }
-    for (let i = 1; i <= 8; i++) {
-      newGuests.push({ seats: i, unavailable: Math.random() < 0.3 });
-    }
-    setHours(newHours);
-    setGuests(newGuests);
   }, [dateSelected]);
+
+  // Make new reservation
+  const createReservation = () => {
+    const reservation = {
+      day: differenceInDays(dateSelected, new Date()) + 1,
+      hour: hourSelected,
+      guests: guestsSelected,
+      occasion: occasionSelected,
+    };
+    fetch(fetchPostURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reservation),
+    })
+      .then(() => createNotification('success', 'Reservation created!', '')())
+      .then(() => setReservationMade(!reservationMade))
+      .catch((err) =>
+        createNotification('error', 'Get reservations failed', err)()
+      )
+      .finally(() => {
+        setHourSelected(null);
+        setGuestsSelected(null);
+        setOccasionSelected(null);
+      });
+  };
 
   return (
     <>
-      <section className='reservation'>
+      <section className={'reservation'}>
         <main className='reservation-content'>
           <form name='reservationForm'>
             <div className='reservation-content-form-title'>
@@ -40,10 +119,13 @@ const ReservationPage = () => {
                   innerText='Make Reservation'
                   fillParent={false}
                   useShadow={true}
-                  disabled={!hourSelected || !dateSelected || !guestsSelected}
-                  callback={() => {
-                    document.reservationForm.submit();
-                  }}
+                  disabled={
+                    !hourSelected ||
+                    !dateSelected ||
+                    !guestsSelected ||
+                    !occasionSelected
+                  }
+                  callback={() => createReservation()}
                 ></Button>
               </div>
             </div>
@@ -91,24 +173,35 @@ const ReservationPage = () => {
                     Number of guests
                   </h2>
                   <div className='reservation-content-form-hours-buttons'>
-                    {guests.map((guest, index) => {
+                    <input
+                      aria-label='guests-number-selector'
+                      type='number'
+                      className='reservation-content-form-hours-buttons-input'
+                      defaultValue={guestsSelected}
+                      min={1}
+                      max={15}
+                      step={1}
+                      placeholder='1 - 15'
+                      onChange={(val) => setGuestsSelected(val.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className='reservation-content-form-guests'>
+                  <h2 className='reservation-content-subtitle'>Occasion</h2>
+                  <div className='reservation-content-form-hours-buttons'>
+                    {defaultOccasion.map((item, index) => {
                       return (
                         <div
                           key={index}
                           className={
-                            (guest.unavailable
-                              ? 'reservation-content-form-hour-taken'
-                              : 'reservation-content-form-hour') +
+                            'reservation-content-form-hour' +
                             ' ' +
-                            (guestsSelected === guest.seats &&
+                            (occasionSelected === item.occasion &&
                               'reservation-content-form-hour-selected')
                           }
-                          onClick={() => {
-                            if (!guest.unavailable)
-                              setGuestsSelected(guest.seats);
-                          }}
+                          onClick={() => setOccasionSelected(item.occasion)}
                         >
-                          {guest.seats}
+                          {item.occasion}
                         </div>
                       );
                     })}
@@ -121,10 +214,13 @@ const ReservationPage = () => {
                     innerText='Make Reservation'
                     fillParent={true}
                     useShadow={true}
-                    disabled={!hourSelected || !dateSelected || !guestsSelected}
-                    callback={() => {
-                      document.reservationForm.submit();
-                    }}
+                    disabled={
+                      !hourSelected ||
+                      !dateSelected ||
+                      !guestsSelected ||
+                      !occasionSelected
+                    }
+                    callback={() => createReservation()}
                   ></Button>
                 </div>
               </div>
@@ -145,6 +241,7 @@ const ReservationPage = () => {
             alt='Restaurant indoor'
           />
         </div>
+        <NotificationContainer />
       </section>
     </>
   );
