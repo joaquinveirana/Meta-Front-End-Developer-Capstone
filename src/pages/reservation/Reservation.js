@@ -51,7 +51,7 @@ const ReservationPage = () => {
     fetch(fetchGetURL)
       .then((response) => response.json())
       .then((data) => setReservationObtained(createReservationsMap(data)))
-      .then(() => setDateSelected(new Date(dateSelected)))
+      .then(() => setDateSelected((dateSelected) => new Date(dateSelected)))
       .catch((err) => {
         createNotification('error', 'Get reservations failed', err)();
       });
@@ -70,7 +70,7 @@ const ReservationPage = () => {
         }
       setHours(newHours);
     }
-  }, [dateSelected]);
+  }, [dateSelected, reservationObtained]);
 
   // Make new reservation
   const createReservation = () => {
