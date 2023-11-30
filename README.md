@@ -45,3 +45,11 @@
    ```
    npm start
    ```
+
+## Tests
+
+1. 🛠 To run the tests of the reservation component:
+
+   ```
+   npm run test
+   ```
