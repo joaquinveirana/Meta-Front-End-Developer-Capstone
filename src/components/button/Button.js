@@ -15,6 +15,7 @@ const Button = ({
 
   return (
     <button
+      data-testid='submit-button'
       className={
         (buttonType ? `button button-${buttonType}` : 'button button-light ') +
         ' ' +
@@ -26,6 +27,7 @@ const Button = ({
         ' ' +
         (fillParent && 'fill-parent')
       }
+      disabled={disabled}
       onClick={(e) => {
         e.preventDefault();
         if (path) navigate(path);

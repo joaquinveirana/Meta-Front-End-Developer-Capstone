@@ -39,7 +39,7 @@ const createReservationsMap = (resList) => {
 
 const ReservationPage = () => {
   const [reservationObtained, setReservationObtained] = useState(null);
-  const [dateSelected, setDateSelected] = useState(null);
+  const [dateSelected, setDateSelected] = useState(new Date());
   const [hourSelected, setHourSelected] = useState(null);
   const [guestsSelected, setGuestsSelected] = useState(null);
   const [occasionSelected, setOccasionSelected] = useState(null);
@@ -51,11 +51,7 @@ const ReservationPage = () => {
     fetch(fetchGetURL)
       .then((response) => response.json())
       .then((data) => setReservationObtained(createReservationsMap(data)))
-      .then(() =>
-        dateSelected === null
-          ? setDateSelected(new Date())
-          : setDateSelected(new Date(dateSelected))
-      )
+      .then(() => setDateSelected(new Date(dateSelected)))
       .catch((err) => {
         createNotification('error', 'Get reservations failed', err)();
       });
@@ -136,8 +132,8 @@ const ReservationPage = () => {
                 <Calendar
                   onChange={(newDate) => {
                     setDateSelected(newDate);
-                    setGuestsSelected(null);
                     setHourSelected(null);
+                    setOccasionSelected(null);
                   }}
                   value={dateSelected}
                   minDate={new Date()}
@@ -151,6 +147,7 @@ const ReservationPage = () => {
                     return (
                       <div
                         key={index}
+                        data-testid='hour-container'
                         className={
                           (hour.taken
                             ? 'reservation-content-form-hour-taken'
@@ -177,7 +174,7 @@ const ReservationPage = () => {
                       aria-label='guests-number-selector'
                       type='number'
                       className='reservation-content-form-hours-buttons-input'
-                      defaultValue={guestsSelected}
+                      value={guestsSelected}
                       min={1}
                       max={15}
                       step={1}
@@ -193,6 +190,7 @@ const ReservationPage = () => {
                       return (
                         <div
                           key={index}
+                          data-testid='occasion-container'
                           className={
                             'reservation-content-form-hour' +
                             ' ' +
