@@ -151,6 +151,7 @@ const ReservationPage = () => {
                     return (
                       <div
                         key={index}
+                        data-testid="hour-container"
                         className={
                           (hour.taken
                             ? 'reservation-content-form-hour-taken'

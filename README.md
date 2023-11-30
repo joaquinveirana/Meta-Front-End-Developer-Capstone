@@ -19,9 +19,15 @@
 </h2>
 
 <div align="center">
-  <img alt="Logo" src="public/demo-desktop.gif" />
+  <h3>Home Screen</h3>
+  <img alt="Logo" src="public/home_screenshot.png" />
 </div>
 
+<div align="center">
+  <h3>Walkthrough</h3>
+  <p>Note this is an older version, changes have been made.</p>
+  <img alt="Logo" src="public/demo-desktop.gif" />
+</div>
 <div align="center">
   <img alt="Logo" height="600" src="public/demo-mobile.gif" />
 </div>
